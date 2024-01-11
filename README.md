@@ -6,7 +6,7 @@
 
 ![image](https://github.com/vetkas2023/fuzzy-controller/assets/143996115/293f0db5-80b9-477c-895d-eda0b3b8b55b)
 
-
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -26,6 +26,7 @@ for x in np.arange(-4, 4, 0.1):
 fig, ax = plt.subplots()
 ax.plot(lst_x, lst_y)
 plt.show()
+```
 
 2) картинка второго графика и код
 
