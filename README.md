@@ -56,3 +56,27 @@ fig, ax = plt.subplots()
 ax.plot(lst_x, lst_y)
 plt.show()
 
+3) переделали в функцию первый график
+   ![image](https://github.com/vetkas2023/fuzzy-controller/assets/143996115/4385dac4-8861-4ee0-9a93-427fbf578c22)
+
+   import matplotlib.pyplot as plt
+import numpy as np
+
+
+def  func(x, a, b):
+    f = 0
+    if a <= x <= b:
+        f = 1
+    return f
+
+
+lst_x = np.arange(-4, 4, 0.1)
+lst_y = []
+for x in lst_x:
+    y = func(x, 2, 3)
+    lst_y.append(y)
+
+fig, ax = plt.subplots()
+ax.plot(lst_x, lst_y)
+plt.show()
+
