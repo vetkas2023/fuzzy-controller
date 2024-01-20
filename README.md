@@ -31,7 +31,7 @@ plt.show()
 2) картинка второго графика и код
 
 ![image](https://github.com/vetkas2023/fuzzy-controller/assets/143996115/b2522944-a906-4a31-8317-2ffb0932097a)
-
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -55,11 +55,11 @@ for x in np.arange(-4, 4, 0.1):
 fig, ax = plt.subplots()
 ax.plot(lst_x, lst_y)
 plt.show()
-
+...
 3) переделали в функцию первый график
    ![image](https://github.com/vetkas2023/fuzzy-controller/assets/143996115/4385dac4-8861-4ee0-9a93-427fbf578c22)
-
-   import matplotlib.pyplot as plt
+```python
+import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -79,4 +79,4 @@ for x in lst_x:
 fig, ax = plt.subplots()
 ax.plot(lst_x, lst_y)
 plt.show()
-
+...
