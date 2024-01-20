@@ -55,7 +55,7 @@ for x in np.arange(-4, 4, 0.1):
 fig, ax = plt.subplots()
 ax.plot(lst_x, lst_y)
 plt.show()
-...
+```
 3) переделали в функцию первый график
    ![image](https://github.com/vetkas2023/fuzzy-controller/assets/143996115/4385dac4-8861-4ee0-9a93-427fbf578c22)
 ```python
@@ -79,4 +79,4 @@ for x in lst_x:
 fig, ax = plt.subplots()
 ax.plot(lst_x, lst_y)
 plt.show()
-...
+```
