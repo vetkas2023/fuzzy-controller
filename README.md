@@ -80,3 +80,38 @@ fig, ax = plt.subplots()
 ax.plot(lst_x, lst_y)
 plt.show()
 ```
+
+4)переделали в функцию второй график
+![image](https://github.com/vetkas2023/fuzzy-controller/assets/143996115/d0875600-5c0f-4e27-9151-334ff04bc343)
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def func(x, a, b, c, d):
+    f = 0
+    if x < a:
+        f = 0
+    elif x > d:
+        f = 0
+    elif a <= x < b:
+        f = (x - a) / (b - a)
+    elif b <= x <= c:
+        f = 1
+    elif c < x <= d:
+        f = (d - x) / (d - c)
+    return f
+
+
+lst_x = np.arange(-4, 4, 0.1)
+lst_y = []
+for x in lst_x:
+    y = func(x, 0, 1, 2, 3)
+    lst_y.append(y)
+
+fig, ax = plt.subplots()
+ax.plot(lst_x, lst_y)
+plt.show()
+```
+
+
