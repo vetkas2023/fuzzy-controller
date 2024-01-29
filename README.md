@@ -63,7 +63,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def  func(x, a, b):
+def  func1(x, a, b):
     f = 0
     if a <= x <= b:
         f = 1
@@ -73,7 +73,7 @@ def  func(x, a, b):
 lst_x = np.arange(-4, 4, 0.1)
 lst_y = []
 for x in lst_x:
-    y = func(x, 2, 3)
+    y = func1(x, 2, 3)
     lst_y.append(y)
 
 fig, ax = plt.subplots()
