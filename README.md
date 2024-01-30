@@ -113,7 +113,7 @@ fig, ax = plt.subplots()
 ax.plot(lst_x, lst_y)
 plt.show()
 ```
-5)
+5)во второй фунции мы сделали два графика двух нечётких чисел и нашли их максимум
 
 ![image](https://github.com/vetkas2023/fuzzy-controller/assets/143996115/b73064ed-2b67-4aea-9c84-42afa32bbdd7)
 ```python
@@ -153,3 +153,46 @@ fig, ax = plt.subplots()
 ax.plot(lst_x, lst_y)
 plt.show()
 ```
+6)во второй фунции мы сделали два графика двух нечётких чисел и нашли их минимум
+
+
+![image](https://github.com/vetkas2023/fuzzy-controller/assets/143996115/1ef10482-7cc0-46e1-b947-346ebdeb0558)
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def func(x, lst):
+    a, b, c, d = lst
+    f = 0
+    if x < a:
+        f = 0
+    elif x > d:
+        f = 0
+    elif a <= x < b:
+        f = (x - a) / (b - a)
+    elif b <= x <= c:
+        f = 1
+    elif c < x <= d:
+        f = (d - x) / (d - c)
+    return f
+
+
+def fmin(x, lst, lst2):
+    f1 = func(x, lst)
+    f2 = func(x, lst2)
+    return min(f1, f2)
+
+
+lst_x = np.arange(-4, 4, 0.1)
+lst_y = []
+for x in lst_x:
+    y = fmin(x, [-3, -2, -1, 0], [-1, 0, 1, 2])
+    lst_y.append(y)
+
+fig, ax = plt.subplots()
+ax.plot(lst_x, lst_y)
+plt.show()
+```
+
+ 
