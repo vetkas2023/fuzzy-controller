@@ -195,4 +195,30 @@ ax.plot(lst_x, lst_y)
 plt.show()
 ```
 
- 
+ 7)Найдём центр тяжести трапиевидного числа
+ ![image](https://github.com/vetkas2023/fuzzy-controller/assets/143996115/25659a09-4a93-4e36-a1de-6be2b9d6f19f)
+ ```python
+    elif b <= x <= c:
+        f = 1
+    elif c < x <= d:
+        f = (d - x) / (d - c)
+    return f
+
+
+def fcentr(x, lst):
+    a, b, c, d = lst
+    f1 = func(x, lst)
+    g = (a ** 2 + b ** 2 - c ** 2 - d ** 2 + b * a - c * d) / (a + b - c - d) * 1 / 3
+    return g
+
+
+lst_x = np.arange(-4, 4, 0.1)
+lst_y = []
+for x in lst_x:
+    y = fcentr(x, [-3, -2, -1, 0])
+    lst_y.append(y)
+
+fig, ax = plt.subplots()
+ax.plot(lst_x, lst_y)
+plt.show()
+```
