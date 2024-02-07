@@ -222,3 +222,47 @@ fig, ax = plt.subplots()
 ax.plot(lst_x, lst_y)
 plt.show()
 ```
+8)Найдем максимум 5 нечётких чисел
+![image](https://github.com/vetkas2023/fuzzy-controller/assets/143996115/1c5d96f1-6d55-42d3-b509-4f0e49b12e92)
+
+ ```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def func(x, lst):
+    a, b, c, d = lst
+    f = 0
+    if x < a:
+        f = 0
+    elif x > d:
+        f = 0
+    elif a <= x < b:
+        f = (x - a) / (b - a)
+    elif b <= x <= c:
+        f = 1
+    elif c < x <= d:
+        f = (d - x) / (d - c)
+    return f
+
+
+def fmax2(x, lst, lst2, lst3, lst4, lst5):
+    f1 = func(x, lst)
+    f2 = func(x, lst2)
+    f3 = func(x, lst3)
+    f4 = func(x, lst4)
+    f5 = func(x, lst5)
+    return max(f1, f2, f3, f4, f5)
+
+
+lst_x = np.arange(-4, 4, 0.1)
+lst_y = []
+for x in lst_x:
+    y = fmax2(x, [-3.5, -2.5, -1.5, 0], [-2.5, -2, -1.5, -1], [-1, 2, 2.25, 2.75], [1, 2, 3, 4], [0, 0.7, 1.25, 2])
+    lst_y.append(y)
+
+fig, ax = plt.subplots()
+ax.plot(lst_x, lst_y)
+plt.show()
+plt.show()
+ ```
