@@ -28,7 +28,7 @@ ax.plot(lst_x, lst_y)
 plt.show()
 ```
 
-2) картинка второго графика и код
+# **2) картинка второго графика и код**
 
 ![image](https://github.com/vetkas2023/fuzzy-controller/assets/143996115/b2522944-a906-4a31-8317-2ffb0932097a)
 ```python
@@ -194,6 +194,54 @@ fig, ax = plt.subplots()
 ax.plot(lst_x, lst_y)
 plt.show()
 ```
+7) Найдем пересечения нечётких чисел 
+
+```
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def func(x, lst):
+    a, b, c, d = lst
+    f = 0
+    if x < a:
+        f = 0
+    elif x > d:
+        f = 0
+    elif a <= x < b:
+        f = (x - a) / (b - a)
+    elif b <= x <= c:
+        f = 1
+    elif c < x <= d:
+        f = (d - x) / (d - c)
+    return f
+
+def fmin(x, lst, lst2):
+    f1 = func(x, lst)
+    f2 = func(x, lst2)
+    return min(f1, f2)
+
+def peresechenie(b1, c1, b2, c2):
+    if b1 > c1:
+        b1, c1 = c1, b1
+    if b2 > c2:
+        b2, c2 = c2, b2
+    if b1 > c2:
+        b1, b2 = b2, b1
+        c1, c2 = c2, c1
+    if c1 < b2:
+        return 0
+    return 1
+
+lst_x = np.arange(-4, 4, 0.1)
+lst_y = []
+for x in lst_x:
+    y = fmin(x, [-3, -2, -1, 0], [-1, 0, 1, 2])
+    lst_y.append(y)
+
+fig, ax = plt.subplots()
+ax.plot(lst_x, lst_y)
+plt.show()
 
  7)Найдём центр тяжести трапиевидного числа
  ![image](https://github.com/vetkas2023/fuzzy-controller/assets/143996115/25659a09-4a93-4e36-a1de-6be2b9d6f19f)
